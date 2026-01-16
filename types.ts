@@ -11,4 +11,5 @@ export interface Course {
   description: string;
   certification: string;
   links: CourseLink[];
+  videoUrl?: string; // Nuevo: Enlace de YouTube específico
 }

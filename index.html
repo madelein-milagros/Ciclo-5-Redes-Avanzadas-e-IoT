@@ -3,21 +3,29 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Ciclo 5: Redes Avanzadas e IoT</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap');
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: white;
+      background-color: #fcfcfc;
+      -webkit-tap-highlight-color: transparent;
     }
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+    .road-path {
+      stroke-dasharray: 8;
+      animation: dash 15s linear infinite;
     }
-    .animate-fadeIn {
-      animation: fadeIn 0.3s ease-out forwards;
+    @keyframes dash {
+      to { stroke-dashoffset: -160; }
+    }
+    @keyframes slideUp {
+      from { transform: translateY(100%); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slide-up {
+      animation: slideUp 0.3s ease-out forwards;
     }
   </style>
 <script type="importmap">
@@ -32,7 +40,7 @@
 }
 </script>
 </head>
-<body>
+<body className="overflow-x-hidden">
   <div id="root"></div>
   <script type="module" src="/index.tsx"></script>
 </body>
